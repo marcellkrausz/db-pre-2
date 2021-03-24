@@ -26,8 +26,8 @@ public class RadioCharts {
         return connection;
     }
 
-    public String getMostPlayedSong(){
-        try(this.CONN){
+    public String getMostPlayedSong() {
+        try (this.CONN) {
             String query = "SELECT song, SUM(times_aired) as most_played FROM music_broadcast " +
                     "GROUP BY artist " +
                     "ORDER BY most_played DESC LIMIT 1";
@@ -44,7 +44,7 @@ public class RadioCharts {
     }
 
     public String getMostActiveArtist() {
-        try(this.CONN){
+        try (this.CONN) {
             String query = "SELECT artist, COUNT(DISTINCT song) as songs FROM music_broadcast " +
                     "GROUP BY artist " +
                     "ORDER BY songs DESC LIMIT 1";
